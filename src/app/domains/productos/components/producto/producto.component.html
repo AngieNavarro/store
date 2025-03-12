@@ -1,0 +1,21 @@
+<!-- <div>
+    <img [src]="img" alt="imagen">
+    <h3>{{title}}</h3>
+    <p>{{price}}</p>
+    <button class="btn btn-primary" (click)="addtocartHandler()">add to cart</button>
+</div> -->
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <a [routerLink]="['/product',product.id]" routerLinkActive="router-link-active" >
+        <img [src]="product.images[0]" alt="imagen">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{product.title | uppercase }}</h5>
+        <p class="card-text">{{product.price | currency:'$':'symbol':'1.3'}}</p>
+        <p class="card-text">{{product.creationAt |timeAgo}}</p>
+        <button class="btn btn-secondary w-75" (click)="addtocartHandler()">add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

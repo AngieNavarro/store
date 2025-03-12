@@ -1,0 +1,26 @@
+<div class="container d-flex gap-4">
+  <!-- Sección de imágenes -->
+  <div class="d-flex flex-column w-100">
+    <div class="border rounded">
+      <img alt="ecommerce" class="img-fluid rounded" [src]="Cover()" />
+    </div>
+    <div class="d-flex justify-content-center mt-2">
+      <div class="d-grid gap-2" style="grid-template-columns: repeat(3, 1fr);">
+        <img *ngFor="let img of Product()?.images" alt="ecommerce" class="img-thumbnail" [src]="img"
+        (click)="changeCover(img)"
+        [ngClass]="{ 'border border-danger': img === Cover() }"        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de información del producto -->
+  <div class="flex-grow-1 mt-3">
+    <h2 class="text-muted text-uppercase small">{{Product()?.categoria?.name | uppercase}}</h2>
+    <h1 class="text-dark fw-medium fs-3">{{Product()?.title}}</h1>
+    <p class="lead">
+      {{Product()?.description}}
+    </p>
+    <p class="fs-4 fw-semibold mt-3 text-dark">{{Product()?.price | currency:'$':'symbol':'1.3'}}</p>
+    <button class="btn btn-danger mt-2" (click)="addtocart()">Add To Cart</button>
+  </div>
+</div>

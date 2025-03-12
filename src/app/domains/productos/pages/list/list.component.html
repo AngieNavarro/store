@@ -1,0 +1,23 @@
+<div class="d-flex gap-4">
+  <div class="row g-4 mt-2">
+    <ul>
+      <li>
+        <a routerLink="/" class="text-reset text-decoration-none">Todas las Categorias</a>
+      </li>
+      <li *ngFor="let cat of categoria()">
+        <a routerLink="/" [queryParams]="{category_id:cat.id}" class="text-reset text-decoration-none">{{cat.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="container text-center mt-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-2">
+        <div class="col mt-3" *ngFor="let prod of producto()">
+          <app-producto [product]="prod" (addtocart)="addToCart($event)">
+          </app-producto>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
